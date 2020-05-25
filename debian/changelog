@@ -1,0 +1,5 @@
+regolith-default-settings (1.0-1) focal; urgency=medium
+
+  * Initial release, files moved from package regolith-gnome-flashback.
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 24 May 2020 19:31:43 -0700
