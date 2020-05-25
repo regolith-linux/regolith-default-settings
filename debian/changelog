@@ -1,4 +1,4 @@
-regolith-default-settings (1.0-1ubuntu1) UNRELEASED; urgency=medium
+regolith-default-settings (1.0-1bionic1) bionic; urgency=medium
 
   [ Ken Gilmer ]
   * Add bionic specific gsettings overrides.
