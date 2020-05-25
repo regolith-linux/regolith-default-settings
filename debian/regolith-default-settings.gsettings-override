@@ -1,6 +1,5 @@
 [org.gnome.gnome-flashback:Regolith]
-desktop=false
-root-background=true
+desktop-background=true
 notifications=false
 status-notifier-watcher=false
 
@@ -9,7 +8,7 @@ switch-input-source=['<Alt><Super>BackSpace']
 switch-input-source-backward=['<Shift><Alt><Super>BackSpace']
 
 [org.gnome.settings-daemon.plugins.media-keys:Regolith]
-screensaver=['']
+screensaver=""
 
 [org.gnome.desktop.wm.preferences:Regolith]
 button-layout=":"
@@ -20,3 +19,4 @@ icon-theme="Moka"
 
 [org.gnome.desktop.background:Regolith]
 picture-uri="file:///usr/share/backgrounds/ESP_016895_1525_desktop.jpg"
+show-desktop-icons=false

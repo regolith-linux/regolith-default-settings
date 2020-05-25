@@ -1,3 +1,10 @@
+regolith-default-settings (1.0-1ubuntu1) UNRELEASED; urgency=medium
+
+  [ Ken Gilmer ]
+  * Add bionic specific gsettings overrides.
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 24 May 2020 20:27:07 -0700
+
 regolith-default-settings (1.0-1) focal; urgency=medium
 
   * Initial release, files moved from package regolith-gnome-flashback.
