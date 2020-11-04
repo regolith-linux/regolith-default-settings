@@ -1,8 +1,8 @@
-regolith-default-settings (1.0.1-1focal1) focal; urgency=medium
+regolith-default-settings (1.0.2-1groovy) groovy; urgency=medium
 
   * Make version specific to focal. 
 
- -- Regolith Linux <regolith.linux@gmail.com>  Wed, 03 Jun 2020 20:41:41 -0700
+ -- Regolith Linux <regolith.linux@gmail.com>  Tue, 03 Nov 2020 16:29:04 -0800
 
 regolith-default-settings (1.0-1) focal; urgency=medium
 
