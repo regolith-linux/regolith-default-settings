@@ -1,3 +1,10 @@
+regolith-default-settings (1.0.3-1bionic1) bionic; urgency=medium
+
+  [ Ken Gilmer ]
+  * Add breaks declaration to deal w/ ISO upgrade issue
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Thu, 24 Dec 2020 18:16:41 -0800
+
 regolith-default-settings (1.0-1bionic1) bionic; urgency=medium
 
   [ Ken Gilmer ]
