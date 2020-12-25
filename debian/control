@@ -8,4 +8,5 @@ Standards-Version: 4.4.1
 Package: regolith-default-settings
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
+Breaks: regolith-gnome-flashback (<< 2.5.0)
 Description: Regolith default settings

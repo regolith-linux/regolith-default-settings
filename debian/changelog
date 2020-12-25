@@ -1,3 +1,10 @@
+regolith-default-settings (1.0.2-1focal) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Add breaks declaration to deal w/ ISO upgrade issue
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Thu, 24 Dec 2020 16:50:33 -0800
+
 regolith-default-settings (1.0.1-1focal1) focal; urgency=medium
 
   * Make version specific to focal. 
