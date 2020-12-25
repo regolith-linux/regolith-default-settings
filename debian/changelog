@@ -1,4 +1,4 @@
-regolith-default-settings (1.0.2-1focal) focal; urgency=medium
+regolith-default-settings (1.0.3-1focal) focal; urgency=medium
 
   [ Ken Gilmer ]
   * Add breaks declaration to deal w/ ISO upgrade issue
