@@ -19,7 +19,7 @@ gtk-theme="Ayu-Mirage-Dark"
 icon-theme="Adwaita"
 
 [org.gnome.desktop.background:Regolith]
-picture-uri="none"
+picture-uri="file:///usr/share/gnome-control-center/pixmaps/noise-texture-light.png"
+picture-options="wallpaper"
 primary-color="#323A4C"
-secondary-color="#33415E"
-color-shading-type="vertical"
+color-shading-type="solid"

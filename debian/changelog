@@ -1,3 +1,10 @@
+regolith-default-settings (2.0.1-1focal) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Fixes to enable color wallpaper
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 31 Jan 2021 12:45:20 -0800
+
 regolith-default-settings (2.0.0-1focal) focal; urgency=medium
 
   [ Ken Gilmer ]
