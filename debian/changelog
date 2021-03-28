@@ -1,4 +1,4 @@
-regolith-default-settings (2.0.0-1bionic1) bionic; urgency=medium
+regolith-default-settings (2.0.2-1bionic1) bionic; urgency=medium
 
   [ Ken Gilmer ]
   * Merge in i3cp changes for bionic
