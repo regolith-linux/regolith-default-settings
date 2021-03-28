@@ -1,3 +1,10 @@
+regolith-default-settings (2.0.0-1bionic1) bionic; urgency=medium
+
+  [ Ken Gilmer ]
+  * Merge in i3cp changes for bionic
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 28 Mar 2021 08:32:22 -0700
+
 regolith-default-settings (1.0.4-1bionic1) bionic; urgency=medium
 
   [ Ken Gilmer ]
