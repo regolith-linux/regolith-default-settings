@@ -1,3 +1,10 @@
+regolith-default-settings (1.0.8-1hirsute) hirsute; urgency=medium
+
+  [ Ken Gilmer ]
+  * Update gbp for hirsute
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Wed, 05 May 2021 07:51:22 -0700
+
 regolith-default-settings (1.0.5-1groovy) groovy; urgency=medium
 
   [ Ken Gilmer ]
