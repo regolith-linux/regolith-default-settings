@@ -1,7 +1,7 @@
-regolith-default-settings (2.0.2-1bionic1) bionic; urgency=medium
+regolith-default-settings (2.0.2-1buster1) buster; urgency=medium
 
   [ Ken Gilmer ]
-  * Merge in i3cp changes for bionic
+  * Merge in i3cp changes for buster
 
  -- Regolith Linux <regolith.linux@gmail.com>  Sun, 28 Mar 2021 08:32:22 -0700
 
