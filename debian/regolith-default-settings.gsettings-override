@@ -17,6 +17,7 @@ button-layout=":"
 [org.gnome.desktop.interface:Regolith]
 gtk-theme="Ayu-Mirage-Dark"
 icon-theme="Adwaita"
+font-name="JetBrainsMono Nerd Font 13"
 
 [org.gnome.desktop.background:Regolith]
 picture-uri="file:///usr/share/gnome-control-center/pixmaps/noise-texture-light.png"

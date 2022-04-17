@@ -11,5 +11,6 @@ Depends: ${shlibs:Depends},
     ${misc:Depends},
     adwaita-icon-theme,
     ayu-theme
+Recommends: fonts-nerd-font-jetbrainsmono
 Breaks: regolith-gnome-flashback (<< 2.5.0)
 Description: Regolith default settings
