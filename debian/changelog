@@ -1,3 +1,10 @@
+regolith-default-settings (2.0.3) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove desktop font specification
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Mon, 18 Apr 2022 22:03:33 -0700
+
 regolith-default-settings (2.0.2) focal; urgency=medium
 
   [ Ken Gilmer ]
