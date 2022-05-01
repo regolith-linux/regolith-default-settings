@@ -1,3 +1,10 @@
+regolith-default-settings (2.0.4) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Remove texture from default wallpaper
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 01 May 2022 16:11:36 -0700
+
 regolith-default-settings (2.0.3) focal; urgency=medium
 
   [ Ken Gilmer ]
