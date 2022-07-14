@@ -1,3 +1,10 @@
+regolith-default-settings (1.0.2) focal; urgency=medium
+
+  [ Ken Gilmer ]
+  * Update default settings to match default look
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Wed, 13 Jul 2022 20:35:56 -0700
+
 regolith-default-settings (1.0.1-1focal1) focal; urgency=medium
 
   * Make version specific to focal. 
