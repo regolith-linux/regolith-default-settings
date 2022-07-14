@@ -15,8 +15,12 @@ screensaver=['']
 button-layout=":"
 
 [org.gnome.desktop.interface:Regolith]
-gtk-theme="Ayu-Mirage-Dark"
-icon-theme="Moka"
+gtk-theme="Adwaita-dark"
+icon-theme="hicolor"
 
 [org.gnome.desktop.background:Regolith]
-picture-uri="file:///usr/share/backgrounds/ESP_016895_1525_desktop.jpg"
+picture-uri=""
+picture-options="none"
+primary-color="#9A9996"
+secondary-color="#B8B8B8"
+color-shading-type="vertical"
