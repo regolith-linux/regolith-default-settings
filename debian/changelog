@@ -1,3 +1,9 @@
+regolith-default-settings (1.0.4) jammy; urgency=medium
+
+  * fix: only show session actions on X11 due to incompat w/ wayland.
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sun, 21 Jul 2024 15:56:16 -0700
+
 regolith-default-settings (1.0.2) focal; urgency=medium
 
   [ Ken Gilmer ]
