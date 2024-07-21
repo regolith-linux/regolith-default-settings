@@ -7,3 +7,4 @@ Encoding=UTF-8
 Icon=system-reboot
 Categories=System;TerminalEmulator;
 Keywords=shell;prompt;command;commandline;cmd;
+OnlyShowIn=Regolith
