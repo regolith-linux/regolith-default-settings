@@ -1,0 +1,100 @@
+#!/usr/bin/python3
+# The launcher must offer exactly one Logout, Reboot and Shutdown entry in
+# each Regolith session, and each must run that session's action:
+# gnome-session-quit (its dialog needs gnome-flashback) in X11, and in sway
+# the swaynag prompt the keybindings use. Launches every entry through GIO,
+# as the launcher does, against stub swaymsg and gnome-session-quit.
+import os
+import subprocess
+import sys
+import tempfile
+import time
+
+APPS = "/usr/share/applications"
+ENTRIES = ["logout", "reboot", "shutdown",
+           "logout-wayland", "reboot-wayland", "shutdown-wayland"]
+SESSIONS = {
+    # XDG_CURRENT_DESKTOP as each session sets it (regolith-session).
+    "X11": ("Regolith:GNOME-Flashback:GNOME", {
+        "Logout": "gnome-session-quit",
+        "Reboot": "gnome-session-quit --reboot",
+        "Shutdown Computer": "gnome-session-quit --power-off"}),
+    "Wayland": ("Regolith-Wayland:GNOME:sway", {
+        "Logout": "swaymsg exec $sway.prompt.logout",
+        "Reboot": "swaymsg exec $sway.prompt.reboot",
+        "Shutdown Computer": "swaymsg exec $sway.prompt.shutdown"}),
+}
+# Desktop names that are not registered with freedesktop.org, and a key the
+# older entries still carry; desktop-file-validate reports both.
+TOLERATED = ('unregistered value "Regolith', 'key "Encoding"')
+
+fail = False
+
+
+def report(ok, msg):
+    global fail
+    print(("ok: " if ok else "FAIL: ") + msg)
+    fail = fail or not ok
+
+
+for name in ENTRIES:
+    path = f"{APPS}/{name}.desktop"
+    res = subprocess.run(["desktop-file-validate", path],
+                         capture_output=True, text=True)
+    rest = [line for line in (res.stdout + res.stderr).splitlines()
+            if line.strip() and not any(t in line for t in TOLERATED)]
+    report(not rest, f"desktop-file-validate {path}" +
+           ("" if not rest else ": " + "; ".join(rest)))
+
+# Runs in a child per session: GLib reads XDG_CURRENT_DESKTOP once.
+CHILD = r'''
+import os, sys, time
+import gi
+try:
+    gi.require_version("GioUnix", "2.0")
+    from gi.repository import GioUnix as G
+except (ValueError, ImportError):
+    gi.require_version("Gio", "2.0")
+    from gi.repository import Gio as G
+apps, log = sys.argv[1], sys.argv[2]
+for name in sys.argv[3:]:
+    path = f"{apps}/{name}.desktop"
+    if not os.path.exists(path):
+        continue
+    info = G.DesktopAppInfo.new_from_filename(path)
+    if not info.should_show():
+        continue
+    open(log, "a").write(f"SHOWN {info.get_name()}\n")
+    before = open(log).read().count("\n")
+    info.launch([], None)
+    for _ in range(50):
+        if open(log).read().count("\n") > before:
+            break
+        time.sleep(0.1)
+'''
+
+with tempfile.TemporaryDirectory() as tmp:
+    stub = os.path.join(tmp, "bin")
+    os.mkdir(stub)
+    for prog in ("swaymsg", "gnome-session-quit"):
+        with open(os.path.join(stub, prog), "w") as f:
+            f.write('#!/bin/sh\necho "RAN %s $*" >> "$STUB_LOG"\n' % prog)
+        os.chmod(os.path.join(stub, prog), 0o755)
+
+    for session, (desktop, want) in SESSIONS.items():
+        log = os.path.join(tmp, f"{session}.log")
+        open(log, "w").close()
+        env = dict(os.environ, XDG_CURRENT_DESKTOP=desktop, STUB_LOG=log,
+                   PATH=stub + ":" + os.environ["PATH"])
+        subprocess.run([sys.executable, "-c", CHILD, APPS, log] + ENTRIES,
+                       env=env, check=True)
+        lines = open(log).read().splitlines()
+        shown = [line[6:] for line in lines if line.startswith("SHOWN ")]
+        ran = [line[4:].rstrip() for line in lines if line.startswith("RAN ")]
+        report(sorted(shown) == sorted(want),
+               f"{session}: launcher shows {shown}, want one each of "
+               f"{sorted(want)}")
+        for label, cmd in want.items():
+            report(cmd in ran, f"{session}: {label} runs '{cmd}' (ran {ran})")
+
+sys.exit(1 if fail else 0)
