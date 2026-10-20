@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Logout
+Exec=swaymsg exec "\\$sway.prompt.logout"
+Terminal=false
+Type=Application
+Icon=gnome-session-logout
+Categories=System;
+Keywords=logout;log out;exit;session;
+OnlyShowIn=Regolith-Wayland;
