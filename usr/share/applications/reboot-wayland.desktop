@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Reboot
+Exec=swaymsg exec "\\$sway.prompt.reboot"
+Terminal=false
+Type=Application
+Icon=system-reboot
+Categories=System;
+Keywords=reboot;restart;
+OnlyShowIn=Regolith-Wayland;

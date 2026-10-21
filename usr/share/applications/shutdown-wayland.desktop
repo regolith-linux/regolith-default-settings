@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Shutdown Computer
+Exec=swaymsg exec "\\$sway.prompt.shutdown"
+Terminal=false
+Type=Application
+Icon=system-shutdown
+Categories=System;
+Keywords=shutdown;power off;poweroff;
+OnlyShowIn=Regolith-Wayland;

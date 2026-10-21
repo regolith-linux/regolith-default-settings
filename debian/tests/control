@@ -1,0 +1,7 @@
+Tests: session-actions
+Depends: regolith-default-settings,
+         desktop-file-utils,
+         python3,
+         python3-gi,
+         gir1.2-glib-2.0
+Restrictions: allow-stderr
