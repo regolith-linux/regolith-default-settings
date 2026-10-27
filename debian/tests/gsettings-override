@@ -1,7 +1,8 @@
 #!/bin/sh
 # The installed schema override must be compiled into the system schemas and
-# give the Regolith defaults where XDG_CURRENT_DESKTOP names Regolith, and only
-# there (it is a desktop-specific override, [schema:Regolith]).
+# give the Regolith defaults in both Regolith sessions, and only there (it is a
+# desktop-specific override: [schema:Regolith] for X11, [schema:Regolith-Wayland]
+# for sway). XDG_CURRENT_DESKTOP is set as each session sets it.
 set -u
 fail=0
 check() { # check <XDG_CURRENT_DESKTOP> <schema> <key> <expected>
@@ -17,11 +18,19 @@ check() { # check <XDG_CURRENT_DESKTOP> <schema> <key> <expected>
 f=/usr/share/glib-2.0/schemas/10_regolith-default-settings.gschema.override
 if [ -f "$f" ]; then echo "ok: $f installed"; else echo "FAIL: $f missing"; fail=1; fi
 
-for desktop in Regolith:GNOME-Flashback:GNOME; do
+x11=Regolith:GNOME-Flashback:GNOME
+wayland=Regolith-Wayland:GNOME:sway
+for desktop in $x11 $wayland; do
     check "$desktop" org.gnome.desktop.wm.keybindings switch-input-source "['<Alt><Super>BackSpace']"
+    check "$desktop" org.gnome.desktop.wm.keybindings switch-input-source-backward "['<Shift><Alt><Super>BackSpace']"
     check "$desktop" org.gnome.desktop.wm.preferences button-layout "':'"
-    check "$desktop" org.gnome.desktop.background picture-options "'none'"
+    check "$desktop" org.gnome.desktop.interface gtk-theme "'Ayu-Mirage-Dark'"
+    check "$desktop" org.gnome.desktop.interface icon-theme "'Adwaita'"
+    check "$desktop" org.gnome.settings-daemon.plugins.media-keys screensaver "['']"
 done
+# The background is drawn by GNOME Flashback in X11 only; sway takes it from
+# the look's Xresources.
+check "$x11" org.gnome.desktop.background picture-options "'none'"
 # Other desktops keep the schema defaults.
 default=$(XDG_CURRENT_DESKTOP= GSETTINGS_BACKEND=memory gsettings get org.gnome.desktop.wm.preferences button-layout)
 if [ "$default" != "':'" ]; then

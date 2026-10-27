@@ -22,3 +22,23 @@ icon-theme="Adwaita"
 picture-options="none"
 primary-color="#323A4C"
 color-shading-type="solid"
+
+# The same defaults for the sway session, whose desktop name is
+# Regolith-Wayland (XDG_CURRENT_DESKTOP=Regolith-Wayland:GNOME:sway). GLib
+# matches desktop names exactly, so the sections above don't apply there.
+# GNOME Flashback doesn't run in sway, and sway draws the wallpaper from the
+# look's Xresources, so those two sections have no Wayland copy.
+
+[org.gnome.desktop.wm.keybindings:Regolith-Wayland]
+switch-input-source=['<Alt><Super>BackSpace']
+switch-input-source-backward=['<Shift><Alt><Super>BackSpace']
+
+[org.gnome.settings-daemon.plugins.media-keys:Regolith-Wayland]
+screensaver=['']
+
+[org.gnome.desktop.wm.preferences:Regolith-Wayland]
+button-layout=":"
+
+[org.gnome.desktop.interface:Regolith-Wayland]
+gtk-theme="Ayu-Mirage-Dark"
+icon-theme="Adwaita"
