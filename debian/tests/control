@@ -5,3 +5,9 @@ Depends: regolith-default-settings,
          python3-gi,
          gir1.2-glib-2.0
 Restrictions: allow-stderr
+
+Tests: gsettings-override
+Depends: regolith-default-settings,
+         libglib2.0-bin,
+         gsettings-desktop-schemas
+Restrictions: allow-stderr
