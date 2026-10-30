@@ -9,5 +9,6 @@ Restrictions: allow-stderr
 Tests: gsettings-override
 Depends: regolith-default-settings,
          libglib2.0-bin,
-         gsettings-desktop-schemas
+         gsettings-desktop-schemas,
+         gnome-settings-daemon-common
 Restrictions: allow-stderr
