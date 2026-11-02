@@ -45,6 +45,17 @@ for name in ENTRIES:
             if line.strip() and not any(t in line for t in TOLERATED)]
     report(not rest, f"desktop-file-validate {path}" +
            ("" if not rest else ": " + "; ".join(rest)))
+    # xdg-terminal-exec falls back to any TerminalEmulator entry when no
+    # terminal is configured, and its line reader drops a last line that
+    # has no newline (here OnlyShowIn), so a power action could be run as
+    # the user's terminal.
+    with open(path) as f:
+        text = f.read()
+    cats = [line.split("=", 1)[1].split(";") for line in text.splitlines()
+            if line.startswith("Categories=")]
+    report(not any("TerminalEmulator" in c for c in cats),
+           f"{path} is not a TerminalEmulator (Categories {cats})")
+    report(text.endswith("\n"), f"{path} ends with a newline")
 
 # Runs in a child per session: GLib reads XDG_CURRENT_DESKTOP once.
 CHILD = r'''
