@@ -12,4 +12,5 @@ Depends: ${shlibs:Depends},
     adwaita-icon-theme,
     ayu-theme
 Breaks: regolith-gnome-flashback (<< 2.5.0)
+Conflicts: session-shortcuts
 Description: Regolith default settings
