@@ -1,3 +1,18 @@
+regolith-default-settings (2.0.7) focal; urgency=medium
+
+  [ Regolith Linux ]
+  * fix: only show session actions on X11 due to incompat w/ wayland.
+
+  [ rego-port-bot ]
+  * fix: add logout, reboot and shutdown entries for the sway session
+  * test: check the session action entries in both Regolith sessions
+  * fix: ship the schema override from the source tree, not from debian/
+  * fix: give the sway session the same GNOME defaults as X11
+  * fix: stop offering the logout, reboot and shutdown entries as terminals
+  * fix(debian): conflict with session-shortcuts
+
+ -- Regolith Linux <regolith.linux@gmail.com>  Sat, 14 Nov 2026 10:22:41 -0800
+
 regolith-default-settings (2.0.6) focal; urgency=medium
 
   [ Khosrow Moossavi ]
